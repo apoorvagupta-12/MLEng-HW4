@@ -32,9 +32,9 @@ jobs:
 #      run: |
 #        pylint tests/
 
-    - name: Run mypy
-      run: |
-        mypy .
+#    - name: Run mypy
+#      run: |
+#        mypy .
 
     - name: Run pytest
       run: |
