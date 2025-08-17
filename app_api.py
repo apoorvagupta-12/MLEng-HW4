@@ -5,11 +5,12 @@ status, greeting, and summing numbers
 
 from fastapi import FastAPI
 from pydantic import BaseModel
+from .app import VERSION
 
 app = FastAPI(
     title="Simple FastAPI Server",
     description="A FastAPI server with status and greeting endpoints.",
-    version="1.0.0"
+    version=VERSION
 )
 
 @app.get("/status")
@@ -18,9 +19,9 @@ def get_status() -> dict:
     return {"status": "OK"}
 
 @app.get("/version")
-def get_status() -> dict:
-    """Returns the server status."""
-    return {"status": "1.1"}
+def get_version() -> dict:
+    """Returns the server version."""
+    return {"version": app.version}
 
 @app.get("/sayhi/{name}")
 def say_hi(name: str) -> dict:
